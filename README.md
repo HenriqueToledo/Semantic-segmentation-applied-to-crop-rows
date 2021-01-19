@@ -4,7 +4,7 @@ A survey of image segmentation techniques applied to detection of crop rows in m
 
 ## Requirements
 
-install Opencv >= 4.2.0
-install Tensorflow >= 2.3.0
-install numpy >= 1.18.5
+install Opencv >= 4.2.0   
+install Tensorflow >= 2.3.0   
+install numpy >= 1.18.5   
 
