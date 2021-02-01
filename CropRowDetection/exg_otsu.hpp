@@ -24,12 +24,22 @@ Mat exG(Mat input){
             int G = (int)index.val[1];
             int R = (int)index.val[2];
 
+            float b = ((float)B/(B+R+G));
+            float g = ((float)G/(B+R+G));
+            float r = ((float)r/(B+R+G));
+
             // Applies the ExG Method
-            exg_output.at<uchar>(Point(x,y)) = (2*G)-R-B;
-            
+            if((2*g)-b-r < 0){
+                exg_output.at<uchar>(Point(x,y)) = 0;
+            }
+            else if((2*g)-b-r > 1){
+                exg_output.at<uchar>(Point(x,y)) = 255;
+            }
+            else{
+                exg_output.at<uchar>(Point(x,y)) = ((2*g)-b-r)*255;
+            }
         }
     }
-
     
     int64 stop = getTickCount();
 
@@ -38,7 +48,6 @@ Mat exG(Mat input){
     cout << "ExG: "<< time*1000 << " ms" << endl;
 
     return exg_output;
-
 }
 
 Mat otsuThreshold(Mat exg_outputs){
