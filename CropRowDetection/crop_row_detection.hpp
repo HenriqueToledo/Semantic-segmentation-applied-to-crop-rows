@@ -165,7 +165,7 @@ void CropRowDetection::houghtTransform(){
         double a = cos(theta), b = sin(theta);
         double x0 = a*rho, y0 = b*rho;
         //cvRound is just a rounding function to transform double into an integer
-        //calculates points p1 and p2 of type p = rho * cos (theta) + 1000 * sen (theta)
+        //calculates points p1 and p2 of type p = rho * cos (theta) + 400 * sen (theta)
         p1.x = cvRound(x0 + 400*(-b));
         p1.y = cvRound(y0 + 400*(a));
         p2.x = cvRound(x0 - 400*(-b));
